@@ -1,0 +1,25 @@
+
+
+def FIFO(referenceString, frameSize):
+
+    create an empty list named frames
+    create an empty queue for insertion order
+    pageFaults = 0
+
+    For each page in referenceString:
+        if the page is in frames:
+            print Hit
+            print frames
+        else:
+            increment pageFaults
+
+            if the current frame is empty:
+                Enqueue page
+                Insert page into current frame 
+            else:
+                Remove oldest in the queue
+                Remove oldest page from frames
+            print Hit
+            print frames
+    print(pageFaults)
+

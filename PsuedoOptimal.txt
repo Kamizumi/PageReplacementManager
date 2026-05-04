@@ -1,0 +1,34 @@
+
+def optimal(referenceString, frameSize):
+    create empty list called frames
+    pageFaults = 0
+
+    for index, page in enumerate(referenceString):
+        if page in frames:
+            print Hit
+            print frames
+        else:
+            print Fault
+            increment pageFaults
+
+            if any cell in frames is empty:
+                index = first empty slot in frames
+                frames[index] = page
+            else:
+                pageToReplace = None
+                distance = -1
+
+                for each candidatePage in frames:
+                    nextUse = index of first occurence of candidatePage in the future string   
+
+                    if the candidatePage never appears again:
+                        pageToReplace = candidatePage
+                        break
+                    else:
+                        if nextUse > distance:
+                            distance = nextUse
+                            pageToReplace = candidatePage
+                target = frames.index(pageToReplace)
+                frames[target] = page
+        print frames
+    return pageFaults

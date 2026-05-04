@@ -1,0 +1,31 @@
+
+def LRU(referenceString, frameSize):
+    create empty list named frames
+    create deque named order 
+    pageFaults = 0
+
+    for each page in referenceString:
+        if page is in frames:
+            print Hit
+
+            remove page from order  #Removes current position
+            append page to order #Becomes most recently used 
+
+            print frames
+        else:
+            print Fault
+            pageFaults += 1
+
+            if there are any empty slots in frames: 
+                index = first empty slot in frames
+                frames[index] = page
+            else:
+                lruPage = order.popleft()
+                index = frames.index(lruPage)
+                frames[index] = page
+            
+            order.append(page)
+
+            print(frames)
+    return pageFault
+
