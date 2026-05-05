@@ -3,7 +3,7 @@ def optimal(referenceString, frameSize):
     create empty list called frames
     pageFaults = 0
 
-    for index, page in enumerate(referenceString):
+    for currStep, page in enumerate(referenceString):
         if page in frames:
             print Hit
             print frames

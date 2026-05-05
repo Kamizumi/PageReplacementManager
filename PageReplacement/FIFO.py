@@ -6,10 +6,11 @@ def FIFO(referenceString, frameSize):
 
     for page in referenceString:
         if page in frames:
-            print(f"Hit: {page} \n")
-            print(f"{frames}  \n")
+            #print(f"Hit: {page} \n")
+            #print(f"{frames}  \n")
+            pass
         else:
-            print(f"Fault : {page}\n")
+            #print(f"Fault : {page}\n")
             pageFaults += 1
 
             if None in frames:
@@ -21,10 +22,10 @@ def FIFO(referenceString, frameSize):
                 frames[target] = page
                 queue.append(page)
 
-            print(f"{frames}  \n")
+            #print(f"{frames}  \n")
     return pageFaults
 
 
 
-fart = FIFO("710325431373111355144705563603", 6)
-print(fart)
+#fart = FIFO("710325431373111355144705563603", 6)
+#print(fart)

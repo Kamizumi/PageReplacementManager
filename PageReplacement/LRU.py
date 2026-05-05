@@ -1,21 +1,25 @@
 from collections import deque
 
 def LRU(referenceString, frameSize):
+    '''
+    Initialize frame size and deque for order of pages
+    Initialize pageFaults to 0
+    '''
     frames = [None] * frameSize
     order = deque()
     pageFaults = 0
 
     for page in referenceString:
         if page in frames:
-            print(f"Hit: {page}\n")
-            print(f"{frames}\n")
+            #print(f"Hit: {page}\n")
+            #print(f"{frames}\n")
             
             #Removes current position and then appends to end of deque
             #Essentially moves page from oldest to most recently used
             order.remove(page)
             order.append(page)
         else:
-            print(f"Fault: {page}\n")
+            #print(f"Fault: {page}\n")
             pageFaults += 1
 
             if None in frames:
@@ -27,8 +31,8 @@ def LRU(referenceString, frameSize):
                 frames[newIndex] = page
             
             order.append(page)
-            print(f"{frames} \n")
+            #print(f"{frames} \n")
     return pageFaults
 
-fart = LRU("710325431373111355144705563603", 6)
-print(fart)
+#fart = LRU("710325431373111355144705563603", 6)
+#print(fart)
