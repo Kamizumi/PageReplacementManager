@@ -11,15 +11,17 @@ def LRU(referenceString, frameSize):
 
     for page in referenceString:
         if page in frames:
-            #print(f"Hit: {page}\n")
-            #print(f"{frames}\n")
+            print(f"Hit: {page}\n")
+            print(f"{frames}\n")
+            #Comment prints if don't want the frames to pop up
             
             #Removes current position and then appends to end of deque
             #Essentially moves page from oldest to most recently used
             order.remove(page)
             order.append(page)
         else:
-            #print(f"Fault: {page}\n")
+            print(f"Fault: {page}\n")
+            #Comment prints if you don't want the faults to pop up
             pageFaults += 1
 
             if None in frames:

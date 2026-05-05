@@ -44,7 +44,6 @@ Part 3
 Randomized testing for all 50 reference strings with 3-6 page frames
 '''
 
-
 def main():
     all_ref_strings = util.read_test_data("testData.txt")
     frameSizes = [3,4,5,6]
@@ -54,6 +53,21 @@ def main():
         sum = {"FIFO" : 0, "LRU" : 0, "OPT" : 0}
 
         print(f"\n--- Running 50 Trials for Size: {size} ---")
+
+        for i in range(trials):
+            sum["FIFO"] += FIFO.FIFO(all_ref_strings[i], size)
+            sum["LRU"] += LRU.LRU(all_ref_strings[i], size)
+            sum["OPT"] += OPTIMAL.OPTIMAL(all_ref_strings[i], size)
+
+        print(f"{'Algorithm':<10} | {'Average TAT':<12}")
+        print("-" * 25)
+        for algorithm, total in sum.items():
+            avg = total / trials
+            print(f"{algorithm:<10} | {avg:<12.2f}")
+
+
+if __name__ == "__main__":
+    main()
 
         
 

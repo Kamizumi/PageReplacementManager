@@ -1,4 +1,7 @@
-
+'''
+OPTIMAL Algorithm
+Takes in the reference string and the frame size
+'''
 def OPTIMAL(referenceString, frameSize):
     frames = [None] * frameSize
     pageFaults = 0
@@ -6,20 +9,23 @@ def OPTIMAL(referenceString, frameSize):
 
     for currStep, page in enumerate(referenceString):
         if page in frames:
-            #print(f"Hit: {page}\n")
-            #print(f"{frames}\n")
-            pass
+            print(f"Hit: {page}\n")
+            print(f"{frames}\n")
+            #pass -> Comment out prints and uncomment print if you don't want to see every step of the frame being filed
 
         else:
-            #print(f"Fault: {page}\n")
-            #print(f"{frames}\n")
+            print(f"Fault: {page}\n")
+            print(f"{frames}\n")
             pageFaults += 1
+            #Same thing here, comment out the faults if you don't want to see that 
             
 
             if None in frames:
                 index = frames.index(None)
                 frames[index] = page
             else:
+
+                #Future string part, so that it's able to replace pages in the frame optimally
                 pageToReplace = None
                 distance = -1
 
@@ -42,4 +48,4 @@ def OPTIMAL(referenceString, frameSize):
 
 
 #fart = OPTIMAL("710325431373111355144705563603", 6)
-#print(fart)
+#print(fart) -> For debugging purposes

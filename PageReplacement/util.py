@@ -18,7 +18,10 @@ def cleanInput(uploadedFile):
                 sanitizedInput.append(int(line))
     return sanitizedInput
 
-
+'''
+Reads in the test data file 
+Returns it in a string for the algorithms to use
+'''
 def read_test_data(filename):
     all_ref_strings = []
 
